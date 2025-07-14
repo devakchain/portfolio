@@ -1,0 +1,161 @@
+.welcome-section {
+  padding: 1rem 2rem 6rem;
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  min-height: 90vh;
+  overflow: hidden;
+
+  .welcome-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
+    animation: fadeSlideUp 1s ease-out both;
+
+    .text {
+      flex: 1 1 300px;
+      animation: fadeIn 1.4s ease-out both;
+
+      h1,
+      h2,
+      p {
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 0.5rem;
+
+        span {
+          color: var(--accent);
+        }
+      }
+
+      h2 {
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        margin-bottom: 1rem;
+        color: var(--subtext);
+      }
+
+      p {
+        font-size: clamp(1rem, 2vw, 1.1rem);
+        line-height: 1.6;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        padding: 0.75rem 1.5rem;
+        background: linear-gradient(
+          to right,
+          var(--accent),
+          var(--accent-hover, #0094cc)
+        );
+        color: var(--btn-text); // ✅ שינוי כאן
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        transition: background 0.3s ease, transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        &:active {
+          transform: scale(0.97);
+        }
+      }
+    }
+
+    .image {
+      flex: 1 1 280px;
+      display: flex;
+      justify-content: center;
+      animation: fadeIn 1.8s ease-out both;
+
+      img {
+        width: 100%;
+        max-width: 280px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        transition: transform 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease;
+
+        &:hover {
+          transform: scale(1.08) rotateZ(1deg);
+          filter: hue-rotate(10deg) brightness(1.1);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+      }
+    }
+  }
+}
+
+// ✅ אנימציות מקצועיות
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ✅ מובייל וטאבלט רספונסיב
+@media (max-width: 768px) {
+  .welcome-content {
+    flex-direction: column;
+    text-align: center;
+
+    .image {
+      margin-top: 2rem;
+
+      img {
+        max-width: 200px;
+      }
+    }
+
+    .text {
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-section {
+    padding: 1rem;
+  }
+
+  .welcome-content {
+    gap: 2rem;
+  }
+}

@@ -1,0 +1,74 @@
+.contact-section {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--subtext); // צבע משני
+    margin-bottom: 3rem;
+  }
+
+  .contact-cards {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .contact-card {
+    background: linear-gradient(135deg, var(--card-start), var(--card-end));
+    padding: 2rem 1.5rem;
+    border-radius: 16px;
+    width: 260px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      background: linear-gradient(
+        135deg,
+        var(--card-hover-start),
+        var(--card-hover-end)
+      );
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5);
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      color: var(--icon);
+      margin-bottom: 1rem;
+      opacity: 0.9;
+    }
+
+    h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+      color: var(--text);
+    }
+
+    a {
+      color: var(--link);
+      text-decoration: none;
+      word-break: break-word;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--link-hover);
+      }
+    }
+  }
+}

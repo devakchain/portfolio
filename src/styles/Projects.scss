@@ -1,0 +1,146 @@
+.projects-section {
+  padding: 6rem 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  color: var(--text);
+  text-align: center;
+  min-height: 100vh;
+
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem;
+}
+
+.flip-card {
+  width: 300px;
+  height: 230px;
+  perspective: 1000px;
+  position: relative;
+  flex-shrink: 0;
+
+  @media (max-width: 1024px) {
+    width: 280px;
+    height: 220px;
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    height: 240px;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    height: 220px;
+  }
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.7s ease;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flip-card-front {
+  background: #222;
+  color: #fff;
+  position: relative;
+  padding: 0;
+
+  .project-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hover-hint {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    color: #fff;
+    pointer-events: none;
+    font-weight: 500;
+    z-index: 2;
+  }
+}
+
+.flip-card-back {
+  background: #111;
+  color: #fff;
+  transform: rotateY(180deg);
+  flex-direction: column;
+  text-align: center;
+  padding: 1.5rem;
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+
+  .btns {
+    margin-top: auto;
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    a {
+      background: #fff;
+      color: #111;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #ccc;
+      }
+    }
+  }
+}
