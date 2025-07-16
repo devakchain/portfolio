@@ -5,6 +5,7 @@ import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 import pic1 from "../assets/pic1.png";
 import shopnext from "../assets/shopnext.webp";
 import pic2 from "../assets/pic2.png";
+import crypto from "../assets/crypto.png";
 
 const projects = [
   {
@@ -30,6 +31,14 @@ const projects = [
       "Interactive movie app with API fetching, search, filters, pagination and dark mode.",
     github: "https://github.com/devakchain/sam-movie",
     demo: "https://sam-move.netlify.app/",
+  },
+  {
+    name: "Crypto Dash",
+    image: crypto,
+    description:
+      "Professional crypto dashboard with real-time CoinGecko data, interactive charts, search, sorting & full responsiveness.",
+    github: "https://github.com/devakchain/crypto-dash",
+    demo: "https://crypto-dashbo.netlify.app/",
   },
 ];
 
