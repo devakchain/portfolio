@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/Projects.scss";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-import pic1 from "../assets/pic1.png";
+import pic1 from "../assets/pic1.jpg";
 import shopnext from "../assets/shopnext.webp";
 import pic2 from "../assets/pic2.png";
 import crypto from "../assets/crypto.png";
