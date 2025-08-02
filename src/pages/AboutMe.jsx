@@ -1,7 +1,7 @@
 // src/pages/AboutMe.jsx
 import React from "react";
 import "../styles/AboutMe.scss";
-import resumePDF from "../assets/cv.new.pdf";
+import resumePDF from "../assets/cv.pdf";
 
 function AboutMe() {
   return (
