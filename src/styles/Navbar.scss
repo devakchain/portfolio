@@ -4,174 +4,265 @@
   left: 0;
   width: 100%;
   height: 80px;
-  background-color: #1a1a1a;
-  color: white;
   z-index: 1000;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s ease;
-
-  .navbar-container {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-  }
-
-  .logo {
-    font-size: 1.7rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-
-    &.dark {
-      color: white;
-    }
-
-    &.light {
-      color: #111;
-    }
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-
-    li a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: #2563eb;
-      }
-    }
-
-    .theme-toggle {
-      width: 50px;
-      height: 26px;
-      background: #333;
-      border-radius: 50px;
-      position: relative;
-      cursor: pointer;
-      transition: background 0.3s ease;
-
-      .toggle-thumb {
-        width: 22px;
-        height: 22px;
-        background: white;
-        border-radius: 50%;
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        transition: transform 0.3s ease;
-
-        &.dark {
-          transform: translateX(24px);
-        }
-
-        &.light {
-          transform: translateX(0);
-        }
-      }
-
-      &:hover {
-        background: #444;
-      }
-    }
-  }
-
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 24px;
-    height: 18px;
-    cursor: pointer;
-
-    span {
-      height: 3px;
-      background: white;
-      border-radius: 2px;
-      transition: all 0.3s ease;
-    }
-
-    &.open {
-      span:nth-child(1) {
-        transform: rotate(45deg) translateY(7px);
-      }
-
-      span:nth-child(2) {
-        opacity: 0;
-      }
-
-      span:nth-child(3) {
-        transform: rotate(-45deg) translateY(-7px);
-      }
-    }
-  }
-
-  .mobile-menu {
-    display: none;
-  }
+  background: rgba(5, 5, 10, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  color: var(--text-color);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .navbar {
-    .nav-links {
-      display: none;
-    }
-
-    .hamburger {
-      display: flex;
-    }
-
-    .mobile-menu {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: absolute;
-      top: 80px;
-      left: 0;
-      width: 100%;
-      background-color: #1a1a1a;
-      padding: 1.5rem 0;
-      gap: 1.5rem;
-      transform: translateY(-100%);
-      opacity: 0;
-      pointer-events: none;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-
-      a {
-        color: white;
-        font-size: 1.1rem;
-        text-decoration: none;
-        font-weight: 500;
-
-        &:hover {
-          color: #2563eb;
-        }
-      }
-
-      .theme-toggle {
-        margin-top: 1rem;
-      }
-
-      &.open {
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-      }
-    }
-  }
+/* קונטיינר פנימי */
+.navbar .navbar-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
 }
 
+/* לוגו טקסטואלי */
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.25s ease;
+}
+
+/* אם אתה מוסיף class="logo dark" / "logo light" */
+.navbar .logo.dark {
+  color: var(--text-color);
+}
+
+.navbar .logo.light {
+  color: var(--text-dark);
+}
+
+.navbar .logo:hover {
+  transform: translateY(-1px);
+}
+
+/* לוגו SVG (אם קיים) */
 .logo-svg {
-  height: 50px;
+  height: 42px;
   width: auto;
   display: block;
+}
+
+/* קישורי ניווט */
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-links li a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.98rem;
+  opacity: 0.85;
+  transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+}
+
+.navbar .nav-links li a:hover {
+  color: var(--accent);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* מתג מצב (Dark / Light) */
+.navbar .nav-links .theme-toggle {
+  width: 50px;
+  height: 26px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.07);
+}
+
+.navbar .nav-links .theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.navbar .nav-links .theme-toggle .toggle-thumb {
+  width: 22px;
+  height: 22px;
+  background: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+/* כשהמצב Dark (אתה שם class="toggle-thumb dark") */
+.navbar .nav-links .theme-toggle .toggle-thumb.dark {
+  transform: translateX(24px);
+}
+
+/* כשהמצב Light (class="toggle-thumb light") */
+.navbar .nav-links .theme-toggle .toggle-thumb.light {
+  transform: translateX(0);
+}
+
+/* איקון המבורגר למובייל */
+.navbar .hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.navbar .hamburger span {
+  height: 3px;
+  background: var(--text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* מצבו פתוח של ההמבורגר (class="hamburger open") */
+.navbar .hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(7px);
+}
+
+.navbar .hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar .hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-7px);
+}
+
+/* תפריט מובייל (סגור כברירת מחדל) */
+.navbar .mobile-menu {
+  display: none;
+}
+
+/* ===== מובייל ===== */
+@media (max-width: 768px) {
+  .navbar .nav-links {
+    display: none;
+  }
+
+  .navbar .hamburger {
+    display: flex;
+  }
+
+  .navbar .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background: rgba(5, 5, 10, 0.98);
+    backdrop-filter: blur(16px);
+    padding: 1.5rem 0 2rem;
+    gap: 1.5rem;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .navbar .mobile-menu a {
+    color: var(--text-color);
+    font-size: 1.05rem;
+    text-decoration: none;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: color 0.25s ease, opacity 0.25s ease;
+  }
+
+  .navbar .mobile-menu a:hover {
+    color: var(--accent);
+    opacity: 1;
+  }
+
+  .navbar .mobile-menu .theme-toggle {
+    margin-top: 0.5rem;
+  }
+
+  /* כשהתפריט פתוח (class="mobile-menu open") */
+  .navbar .mobile-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* ===========================================
+   NAVBAR — LIGHT THEME SUPPORT
+   =========================================== */
+
+/* רקע navbar במצב לייט */
+body.light-theme .navbar {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+  color: var(--text-dark);
+}
+
+/* צבע לוגו */
+body.light-theme .navbar .logo {
+  color: var(--text-dark) !important;
+}
+
+/* קישורי ניווט */
+body.light-theme .navbar .nav-links li a {
+  color: var(--text-dark);
+  opacity: 0.85;
+}
+
+body.light-theme .navbar .nav-links li a:hover {
+  color: var(--accent);
+  opacity: 1;
+}
+
+/* toggle רקע בהיר */
+body.light-theme .navbar .theme-toggle {
+  background: rgba(0, 0, 0, 0.1) !important;
+  box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.1);
+}
+
+body.light-theme .navbar .theme-toggle:hover {
+  background: rgba(0, 0, 0, 0.15) !important;
+}
+
+/* toggle-thumb */
+body.light-theme .navbar .toggle-thumb {
+  background: #ffffff;
+}
+
+/* ההמבורגר במצב לייט */
+body.light-theme .navbar .hamburger span {
+  background: var(--text-dark);
+}
+
+/* MOBILE MENU בלייט */
+body.light-theme .navbar .mobile-menu {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+}
+
+body.light-theme .navbar .mobile-menu a {
+  color: var(--text-dark);
+}
+
+body.light-theme .navbar .mobile-menu a:hover {
+  color: var(--accent);
 }

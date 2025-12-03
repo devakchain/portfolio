@@ -1,105 +1,122 @@
+/* ===== HERO / WELCOME SECTION ===== */
 .welcome-section {
   padding: 1rem 2rem 6rem;
-  background-color: var(--bg);
-  color: var(--text);
+  background: radial-gradient(
+      circle at top,
+      rgba(92, 108, 255, 0.09),
+      transparent 55%
+    ),
+    var(--bg-color);
+  color: var(--text-color);
   display: flex;
   justify-content: center;
+  align-items: center;
   min-height: 90vh;
   overflow: hidden;
-
-  .welcome-content {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 3rem;
-    width: 100%;
-    max-width: 1200px;
-    padding: 1rem;
-    animation: fadeSlideUp 1s ease-out both;
-
-    .text {
-      flex: 1 1 300px;
-      animation: fadeIn 1.4s ease-out both;
-
-      h1,
-      h2,
-      p {
-        transition: color 0.3s ease, transform 0.3s ease;
-      }
-
-      h1 {
-        font-size: clamp(2rem, 5vw, 3rem);
-        margin-bottom: 0.5rem;
-
-        span {
-          color: var(--accent);
-        }
-      }
-
-      h2 {
-        font-size: clamp(1.2rem, 3vw, 1.8rem);
-        margin-bottom: 1rem;
-        color: var(--subtext);
-      }
-
-      p {
-        font-size: clamp(1rem, 2vw, 1.1rem);
-        line-height: 1.6;
-        margin-bottom: 2rem;
-      }
-
-      .cta-button {
-        padding: 0.75rem 1.5rem;
-        background: linear-gradient(
-          to right,
-          var(--accent),
-          var(--accent-hover, #0094cc)
-        );
-        color: var(--btn-text); // ✅ שינוי כאן
-        text-decoration: none;
-        font-weight: bold;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        transition: background 0.3s ease, transform 0.3s ease;
-
-        &:hover {
-          transform: scale(1.05);
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-        }
-
-        &:active {
-          transform: scale(0.97);
-        }
-      }
-    }
-
-    .image {
-      flex: 1 1 280px;
-      display: flex;
-      justify-content: center;
-      animation: fadeIn 1.8s ease-out both;
-
-      img {
-        width: 100%;
-        max-width: 280px;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 50%;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        transition: transform 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease;
-
-        &:hover {
-          transform: scale(1.08) rotateZ(1deg);
-          filter: hue-rotate(10deg) brightness(1.1);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
-        }
-      }
-    }
-  }
 }
 
-// ✅ אנימציות מקצועיות
+.welcome-section .welcome-content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  width: 100%;
+  max-width: 1100px;
+  padding: 1rem;
+  animation: fadeSlideUp 1s ease-out both;
+}
+
+/* ===== TEXT SIDE ===== */
+.welcome-section .welcome-content .text {
+  flex: 1 1 300px;
+  animation: fadeIn 1.4s ease-out both;
+}
+
+.welcome-section .welcome-content .text h1,
+.welcome-section .welcome-content .text h2,
+.welcome-section .welcome-content .text p {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* כותרת ראשית */
+.welcome-section .welcome-content .text h1 {
+  font-size: clamp(2rem, 5vw, 3.1rem);
+  margin-bottom: 0.5rem;
+  font-weight: 700;
+}
+
+.welcome-section .welcome-content .text h1 span {
+  color: var(--accent);
+}
+
+/* כותרת משנה */
+.welcome-section .welcome-content .text h2 {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  margin-bottom: 1rem;
+  color: rgba(229, 229, 229, 0.75);
+}
+
+/* פסקה */
+.welcome-section .welcome-content .text p {
+  font-size: clamp(1rem, 2vw, 1.08rem);
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  max-width: 520px;
+}
+
+/* CTA BUTTON */
+.welcome-section .welcome-content .text .cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.7rem;
+  background: linear-gradient(to right, var(--primary), var(--accent));
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  letter-spacing: 0.03em;
+  font-size: 0.98rem;
+}
+
+.welcome-section .welcome-content .text .cta-button:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
+}
+
+.welcome-section .welcome-content .text .cta-button:active {
+  transform: scale(0.97);
+}
+
+/* ===== IMAGE SIDE ===== */
+.welcome-section .welcome-content .image {
+  flex: 1 1 280px;
+  display: flex;
+  justify-content: center;
+  animation: fadeIn 1.8s ease-out both;
+}
+
+.welcome-section .welcome-content .image img {
+  width: 100%;
+  max-width: 280px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.65);
+  transition: transform 0.6s ease, filter 0.6s ease, box-shadow 0.6s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.welcome-section .welcome-content .image img:hover {
+  transform: scale(1.08) rotateZ(1deg);
+  filter: hue-rotate(10deg) brightness(1.05);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85);
+}
+
+/* ===== ANIMATIONS ===== */
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -120,33 +137,32 @@
   }
 }
 
-// ✅ מובייל וטאבלט רספונסיב
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-  .welcome-content {
+  .welcome-section .welcome-content {
     flex-direction: column;
     text-align: center;
+  }
 
-    .image {
-      margin-top: 2rem;
+  .welcome-section .welcome-content .image {
+    margin-top: 2rem;
+  }
 
-      img {
-        max-width: 200px;
-      }
-    }
+  .welcome-section .welcome-content .image img {
+    max-width: 200px;
+  }
 
-    .text {
-      h1 {
-        font-size: 2rem;
-      }
+  .welcome-section .welcome-content .text h1 {
+    font-size: 2rem;
+  }
 
-      h2 {
-        font-size: 1.2rem;
-      }
+  .welcome-section .welcome-content .text h2 {
+    font-size: 1.2rem;
+  }
 
-      p {
-        font-size: 1rem;
-      }
-    }
+  .welcome-section .welcome-content .text p {
+    font-size: 1rem;
+    margin-inline: auto;
   }
 }
 
@@ -155,7 +171,7 @@
     padding: 1rem;
   }
 
-  .welcome-content {
+  .welcome-section .welcome-content {
     gap: 2rem;
   }
 }

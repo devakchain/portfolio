@@ -1,43 +1,113 @@
-body,
-html {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+/* ===== RESET בסיסי + BOX-SIZING ===== */
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
-body.dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.light {
-  background-color: #f0f0f0;
-  color: #111111;
-}
-
-.app {
-  font-family: "Segoe UI", sans-serif;
-  transition: all 0.3s ease;
-  width: 100vw;
+/* ===== HTML & BODY ===== */
+html,
+body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
-main {
-  padding-top: 80px;
+body {
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: var(--font-main);
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.section {
-  padding: 4rem 2rem;
-  text-align: center;
+/* אופציונלי: אם יש לך טוגל של Dark/Light בתור class על body */
+body.dark-theme {
+  background: var(--bg-color);
+  color: var(--text-color);
 }
 
-.home-section {
-  min-height: 60vh;
+body.light-theme {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+/* ===== APP WRAPPER ===== */
+.app {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
   display: flex;
   flex-direction: column;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  flex: 1;
+  padding-top: 80px; /* בשביל navbar קבוע */
+}
+
+/* ===== GENERIC SECTION ===== */
+.section {
+  padding: 4rem 2rem;
+}
+
+/* להגביל רוחב וליישר למרכז */
+.section .section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ===== HOME / HERO SECTION ===== */
+.home-section {
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 4rem 2rem;
+}
+
+/* במקרה שה־Hero שלך מחולק לטקסט + תמונה */
+.home-section .hero-text {
+  flex: 1 1 480px;
+}
+
+.home-section .hero-text h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.home-section .hero-text p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  opacity: 0.9;
+  max-width: 520px;
+}
+
+.home-section .hero-media {
+  flex: 1 1 380px;
+  display: flex;
   justify-content: center;
+}
+
+/* רספונסיביות ל־Hero */
+@media (max-width: 900px) {
+  .home-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .home-section .hero-text {
+    align-items: center;
+  }
+
+  .home-section .hero-text p {
+    margin-inline: auto;
+  }
 }
