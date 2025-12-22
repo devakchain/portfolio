@@ -8,7 +8,7 @@
       transparent 55%
     ),
     var(--bg-color);
-  color: var(--text-color);
+  color: var(--white);
   min-height: 60vh;
   display: flex;
   flex-direction: column;
@@ -88,7 +88,7 @@
 /* אייקון (לוגו) בעיצוב נקי */
 .contact-section .contact-card .icon {
   font-size: 2.1rem;
-  color: var(--primary); /* צבע יותר נקי */
+  color: var(--white); /* צבע יותר נקי */
   margin-bottom: 1rem;
   opacity: 0.96;
   position: relative;
@@ -120,7 +120,7 @@
 
 /* לינק (מייל, פרופיל וכו׳) */
 .contact-section .contact-card a {
-  color: var(--primary);
+  color: var(--white);
   text-decoration: none;
   word-break: break-word;
   font-weight: 500;
