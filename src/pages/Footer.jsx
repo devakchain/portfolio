@@ -32,14 +32,14 @@ function Footer({ darkMode }) {
           <h4>Connect with me</h4>
           <div className="social-icons">
             <a
-              href="https://github.com/yourgithub"
+              href="https://github.com/devakchain"
               target="_blank"
               rel="noreferrer"
             >
               <FaGithub />
             </a>
             <a
-              href="https://linkedin.com/in/yourlinkedin"
+              href="https://www.linkedin.com/in/shmuel-yitzhak-075289257/"
               target="_blank"
               rel="noreferrer"
             >
